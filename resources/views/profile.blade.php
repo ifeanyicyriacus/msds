@@ -112,6 +112,15 @@ Update Profile
                                         </div>
                                 </div>
                               </div>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10 form-row">
+                            <div class="col">
+                                <input type="verifyPassword" class="form-control" id="inputEmail3" aria-describedby="emailHelp" placeholder="Verify password">
+                                <small id="emailHelp" class="form-text text-muted">We are asking for password to verify that it is really you.</small>
+                            </div>
+                        </div>
+                    </div>
 
 
                         <div class="form-group row">

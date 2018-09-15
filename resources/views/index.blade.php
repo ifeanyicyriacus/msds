@@ -140,7 +140,7 @@
                 @else
                 <input type="hidden" name="userid" value="{{ Auth::user()->email }}">
                 @endif
-                <button type="submit" class="btn btn-success"><strong>Start chat</strong></button>
+                <button type="submit" class="btn btn-success"><strong>Symptom assessment</strong></button>
             </form>
             
             </div>
@@ -153,7 +153,7 @@
                 <a class="text-dark" href="{{url('library')}}">Find safe health info</a>
                 </h3>                  
                 <p class="card-text mb-auto">Browse our condition library.</p>
-                <a href="{{url('library')}}" class="btn btn-primary"><strong>Visit library</strong></a>
+                <a href="{{url('library')}}" class="btn btn-primary"><strong>Visit Condition library</strong></a>
             </div>
             </div>
         </div>
@@ -173,7 +173,7 @@
                             @else
                             <input type="hidden" name="userid" value="{{ Auth::user()->email }}">
                             @endif
-                            <button type="submit" class="btn btn-warning"><strong>Update profile</strong></button>
+                            <button type="submit" class="btn btn-warning"><strong>Update health profile</strong></button>
                         </form>
                 </div>
             </div>
@@ -186,7 +186,7 @@
                     <a class="text-dark" href="{{url('911')}}">Emergency case</a>
                     </h3>                  
                     <p class="card-text mb-auto">Find closest healhcare provider closest to your location.</p>
-                    <a href="{{url('911')}}" class="btn btn-danger"><strong>Hospital Search</strong></a>
+                    <a href="{{url('911')}}" class="btn btn-danger"><strong>Find Hospital Nearby</strong></a>
                 </div>
                 </div>
             </div>

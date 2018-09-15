@@ -29,12 +29,7 @@ class DiseaseController extends Controller
     {
         //
 
-
-
-        $diseaseName = 'Malaria';
-//        dd($diseaseName);
-//        return view('domainExpertCreate');
-        return view('domainExpertCreate',compact('diseaseName'));
+        return view('domainExpertCreate');
     }
     /**
      * Store a newly created resource in storage.
@@ -79,6 +74,8 @@ class DiseaseController extends Controller
      * @param  \MSDS\Disease  $disease
      * @return \Illuminate\Http\Response
      */
+    //i will use it to show all available symptom in a list. that shows name, and oter detail
+//    such that if you click on it it takes you to a form already populated with the information for easy editing
     public function show(Disease $disease)
     {
         //
@@ -122,7 +119,7 @@ class DiseaseController extends Controller
             $searchResult= 'No symptom found';
         }
         else{
-            foreach ($symptoms as $){}
+            foreach ($symptoms as $symptom){}
         }
         return $searchResult;
         //         return $availableSymptoms = [
@@ -240,14 +237,36 @@ class DiseaseController extends Controller
 //for each diseases
         $diseaseScores = $this->grading($symptoms,$commonSymptoms,$uncommonSymptoms,$diseaseScores);
 
-
-
-
-
 //        dd($symptoms,$diseases,$commonSymptoms,$uncommonSymptoms,$diseaseScores);
 
         dd($symptoms,$diseases,$diseaseScores,$commonSymptoms,$uncommonSymptoms);
         //return view('domainExpertCreate');
+    }
+
+    public function dx(Request $request)
+    {
+        $symptoms = $request->symptoms;
+        $symptoms = str_replace(", ",",","$symptoms");
+        $symptoms = str_replace(" ,",",","$symptoms");
+        $symptoms = explode(",", "$symptoms");
+        dd($symptoms);
+        $diseases = DB::select('select disease,commonSymptoms,uncommonSymptoms FROM diseases');
+
+
+        for($i=0;$i < count($diseases);$i++)
+        {
+            $diseaseScores[$i]=0;
+
+            $commonSymptoms[$i] = $diseases[$i]->commonSymptoms;
+            $uncommonSymptoms[$i] = $diseases[$i]->uncommonSymptoms;
+            $diseases[$i] = $diseases[$i]->disease;
+            // i used it to initialize the array $diseaseScores
+        }
+
+        $diseaseScores = $this->grading($symptoms,$commonSymptoms,$uncommonSymptoms,$diseaseScores);
+
+
+//        dd($request->request);
     }
 
     private function grading($symptoms,$commonSymptoms,$uncommonSymptoms,$diseaseScores){
