@@ -3,6 +3,7 @@
 namespace MSDS\Http\Controllers;
 
 use MSDS\Disease;
+use MSDS\Symptom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -106,6 +107,51 @@ class DiseaseController extends Controller
         //
     }
 
+   /**
+     * Search the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $symptom = $request->symptom;
+        $symptoms = Symptom::where('name','LIKE','%'.$symptom.'%')->get();
+
+        if (count($symptom) == 0){
+            $searchResult= 'No symptom found';
+        }
+        else{
+            foreach ($symptoms as $){}
+        }
+        return $searchResult;
+        //         return $availableSymptoms = [
+//             "ActionScript",
+//             "AppleScript",
+//             "Asp",
+//             "BASIC",
+//             "C",
+//             "C++",
+//             "Clojure",
+//             "COBOL",
+//             "ColdFusion",
+//             "Erlang",
+//             "Fortran",
+//             "Groovy",
+//             "Haskell",
+//             "Java",
+//             "JavaScript",
+//             "Lisp",
+//             "Perl",
+//             "PHP",
+//             "Python",
+//             "Ruby",
+//             "Scala",
+//             "Scheme"
+//           ];
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -198,43 +244,55 @@ class DiseaseController extends Controller
 
 
 
-        dd($symptoms,$diseases,$commonSymptoms,$uncommonSymptoms,$diseaseScores);
+//        dd($symptoms,$diseases,$commonSymptoms,$uncommonSymptoms,$diseaseScores);
 
-        //dd($symptoms,$diseases,$diseaseScores,$commonSymptoms,$uncommonSymptoms);
+        dd($symptoms,$diseases,$diseaseScores,$commonSymptoms,$uncommonSymptoms);
         //return view('domainExpertCreate');
     }
 
+    private function grading($symptoms,$commonSymptoms,$uncommonSymptoms,$diseaseScores){
 
-    private function test($symptom,$diseaseSymptoms){
+        for ($i=0,$j=0; $i < count($diseaseScores);$i++) {
 
+//            dd($commonSymptoms[$j]);
+//            if ($this->test("$commonSymptoms[$j]","$symptoms[$i]")) {
+//                $diseaseScores[$i] += 0.5;
+//            }
+//            if ($this->test("$uncommonSymptoms[$j]","$symptoms[$i]")) {
+//                $diseaseScores[$i] += 0.5;
+//            }
+            if ($this->test("cough,chills,fever","chills")) {
+                $diseaseScores[$i] += 0.5;
+            }
+
+
+            if ($i == count($diseaseScores)){
+                $j++;$i=0;
+            }
+            if ($j == count($diseaseScores)){
+                break;
+            }
+        }
+        return $diseaseScores;
+    }
+
+
+    private function test($diseaseSymptomList,$symptom){
 //        dd($diseaseSymptoms);
-//        dd($symptom);
-//        if ($diseaseSymptoms[0]->containsStringIgnoringCase($symptom))
+////        dd($symptom);
+//        if ($diseaseSymptomList->containsStringIgnoringCase($symptom))
 //        {
 //            return true;
 //        }
 //        else return false;
-
-        if (strpos("$diseaseSymptoms","$symptom") !== false)
+//
+        if (strpos("$diseaseSymptomList","$symptom") !== false)
         {
-            dd('hello');
-//            return true;
+            return true;
         }
-//        return true;
+        else return false;
     }
 
-    private function grading($symptoms,$commonSymptoms,$uncommonSymptoms,$diseaseScores){
-        for ($i=0; $i < count($diseaseScores);$i++) {
-            if ($this->test($symptoms[$i], $commonSymptoms)) {
-                $diseaseScores[$i] += 1;
-            }
-            if ($this->test($symptoms[$i], $uncommonSymptoms)) {
-                $diseaseScores[$i] += 0.5;
-            }
 
-        }
-        return $diseaseScores;
-
-    }
 
 }

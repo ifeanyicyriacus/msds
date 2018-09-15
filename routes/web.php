@@ -76,3 +76,16 @@ Route::get('/xpertEdit', 'DiseaseController@edit');
 
 
 //Expert System Engineer View
+
+
+//test
+Route::get('/whatsapp', function () {
+    return view('whatsapp');
+});
+
+Route::get('/Dx', function () {
+    return view('newDx');
+});
+
+Route::post('/Dx', 'DiseaseController@dx');
+//Route::get('/search', 'DiseaseController@search');

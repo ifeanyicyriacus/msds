@@ -54,7 +54,7 @@ Update Profile
 
         <div class="col-9">
           <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-basicInformation" role="tabpanel" aria-labelledby="v-pills-basicInformation-tab">
+            <div class="tab-pane show active" id="v-pills-basicInformation" role="tabpanel" aria-labelledby="v-pills-basicInformation-tab">
                 Basic Information
                 <hr>               
                 <form action="" method="post">
