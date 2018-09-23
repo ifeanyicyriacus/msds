@@ -5,7 +5,7 @@
 @section('page_style')
 <style>
   body{
-    background-image: url({{url('assets/images/chat3.png')}});
+    background-image: url("{{url('assets/images/chat3.png')}}");
 
   }
 

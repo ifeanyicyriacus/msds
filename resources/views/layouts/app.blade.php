@@ -51,6 +51,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->fname }} <span class="caret"></span>
                                 </a>
+                                <input type="hidden" name="userId" value="{{ Auth::user()->email }}">
 
                                 <ul class="dropdown-menu">
                                     <li>

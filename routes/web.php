@@ -1,9 +1,4 @@
-
 <?php
-//namespace MSDS\Http\Controllers;
-
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,74 +13,65 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('index');
 });
-Route::post('/', function () {
-    return view('index');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
-// beginning of dydx
-Route::get('/dydx', 'ChatController@index');
-Route::post('/dydx','ChatController@index');
-
-Route::post('/chat', 'ChatController@create');
-Route::get('/chat', 'ChatController@index');
-
-
-// end of dydx
-
-Route::post('/profile', function () {
-    return view('profile');
-});
+//Static pages routes
 Route::get('/about', function () {
     return view('about');
 });
 Route::get('/TC', function () {
     return view('TC');
 });
-Route::get('/library', function () {
-    return view('library');//create library controllor to manage search
-});
 Route::get('/FAQ', function () {
     return view('FAQ');
 });
-Route::get('/911', function () {
-    return view('911');
+
+
+
+//Condition Library Routes
+Route::get('/library', function () {
+    return view('library');//create library controller to manage search
 });
+
+//Emergency Routes
+Route::get('/112', function () {
+    return view('112');
+});
+
+//Profile Routes
+Route::get('/profile', 'ProfileController@show');
+Route::post('/updateBasic', 'ProfileController@basicUpdate');
+Route::post('/updateMedical', 'ProfileController@medicalUpdate');
+
+
+//Symptoms Assessment routes
+Route::get('/dydx', 'DiagnosisController@index');
+Route::post('/dydx', 'DiagnosisController@diagnosis');
 
 //Route::get('/diagnosis', 'DiagnosisController@diagnosis');
 Route::get('/diagnosis', 'DiseaseController@diagnosis');
 Route::post('/diagnosis', 'DiseaseController@diagnosis');
 
 
+//Domain Expert Routes
+Route::get('/expertCreate', 'DiseaseController@create');
+Route::post('/expertCreate', 'DiseaseController@store');//create
 
-//Domain Expert View
-Route::get('/xpertCreate', 'DiseaseController@create');
-//Route::post('/xpertCreate', 'DiseaseController@store');
-Route::post('/xpertCreate', 'DiseaseController@store');
+Route::get('/expertEdit', 'DiseaseController@edit');
+Route::post('/expertEdit', 'DiseaseController@update');//update
 
-//
-Route::get('/xpertEdit', 'DiseaseController@edit');
-//Route::post('/xpertEdit', 'DiseaseController@update');
-//
-//Route::post('/xdisease', 'DiseaseController@destroy');
+Route::post('/expertDelete', 'DiseaseController@destroy');
+
 
 
 //Expert System Engineer View
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->middleware('auth');
 
 
-//test
-Route::get('/whatsapp', function () {
-    return view('whatsapp');
-});
 
-Route::get('/Dx', function () {
-    return view('newDx');
-});
-
-Route::post('/Dx', 'DiseaseController@dx');
-//Route::get('/search', 'DiseaseController@search');
+//change database names
+//dissease to kb
+//xpert to expert

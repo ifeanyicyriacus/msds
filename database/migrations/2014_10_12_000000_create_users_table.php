@@ -20,10 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('sex');
             $table->date('d_o_b');
             $table->string('email')->unique();
+//            newly added
+            $table->string('role')->nullable();
+
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            // take a look at the other Bitfumes video on authtication to create customised register screen
+            // take a look at the other Bitfumes video on authentication to create customised register screen
         });
     }
 

@@ -99,7 +99,7 @@
                             </div>
 
                             <div>
-                                <a href="#" class="btn btn-info">Print Result</a>
+                                <a href="#" onclick="window.print()" class="btn btn-info">Print Result</a>
                             </div>
                         </div>
 
