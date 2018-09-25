@@ -17,9 +17,9 @@ class CreateLogsTable extends Migration
             $table->increments('id');
             $table->string('email');
             $table->string('page');
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable();
         });
-    }
+    }//for analytics sending ajax request to a controller on page load
 
     /**
      * Reverse the migrations.

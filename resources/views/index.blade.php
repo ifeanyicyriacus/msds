@@ -183,10 +183,10 @@
                 <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h3 class="mb-0">
-                            <a class="text-dark" href="{{url('911')}}">Emergency case</a>
+                            <a class="text-dark" href="{{url('112')}}">Emergency case</a>
                         </h3>
                         <p class="card-text mb-auto">Find closest healhcare provider closest to your location.</p>
-                        <a href="{{url('911')}}" class="btn btn-danger"><strong>Find Hospital Nearby</strong></a>
+                        <a href="{{url('112')}}" class="btn btn-danger"><strong>Find Hospital Nearby</strong></a>
                     </div>
                 </div>
             </div>

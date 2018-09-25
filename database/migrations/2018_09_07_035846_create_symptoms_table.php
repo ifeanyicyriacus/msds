@@ -17,6 +17,7 @@ class CreateSymptomsTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->text('description')->nullable();
+            $table->string('added_by');
             $table->timestamps();
         });
     }

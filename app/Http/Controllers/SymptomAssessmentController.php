@@ -2,12 +2,12 @@
 
 namespace MSDS\Http\Controllers;
 
-use MSDS\Disease;
-use MSDS\Symptom;
+use MSDS\SymptomAssessment;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 
-class DiagnosisController extends Controller
+class SymptomAssessmentController extends Controller
 {
     public function __construct()
     {
@@ -142,4 +142,5 @@ class DiagnosisController extends Controller
 ////        $symptoms [3]= [1, 1, 1, 1, 1];
 ////        $symptoms [0]++;
 //        dd($symptoms,$diseases);
+    
 }

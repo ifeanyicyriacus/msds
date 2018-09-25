@@ -52,7 +52,7 @@
                     Other Services
                 </button>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{url('911')}}">Emergency</a>
+                    <a class="dropdown-item" href="{{url('112')}}">Emergency</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{url('about')}}">About</a>
                     <a class="dropdown-item" href="{{url('FAQ')}}">FAQ</a>

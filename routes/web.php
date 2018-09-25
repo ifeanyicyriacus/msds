@@ -30,48 +30,55 @@ Route::get('/FAQ', function () {
 });
 
 
+////Condition Library Routes
+// users
+Route::get('/library', 'ConditionController@index');
+Route::get('/library', 'ConditionController@show');
+// admin only
+Route::get('/library', 'ConditionController@create');
+Route::post('/library', 'ConditionController@store');
+Route::post('/library', 'ConditionController@edit');
+Route::get('/library', 'ConditionController@update');
+Route::get('/library', 'ConditionController@destroy');
 
-//Condition Library Routes
-Route::get('/library', function () {
-    return view('library');//create library controller to manage search
-});
 
 //Emergency Routes
-Route::get('/112', function () {
-    return view('112');
-});
+Route::get('/112', 'EmergencyController@show');
 
 //Profile Routes
 Route::get('/profile', 'ProfileController@show');
 Route::post('/updateBasic', 'ProfileController@basicUpdate');
 Route::post('/updateMedical', 'ProfileController@medicalUpdate');
 
-
 //Symptoms Assessment routes
-Route::get('/dydx', 'DiagnosisController@index');
-Route::post('/dydx', 'DiagnosisController@diagnosis');
+Route::get('/dydx', 'SymptomAssessmentController@index');
+Route::post('/dydx', 'SymptomAssessmentController@diagnosis');
 
-//Route::get('/diagnosis', 'DiagnosisController@diagnosis');
-Route::get('/diagnosis', 'DiseaseController@diagnosis');
-Route::post('/diagnosis', 'DiseaseController@diagnosis');
+//Route::get('/diagnosis', 'SymptomAssessmentController@diagnosis');
+Route::get('/diagnosis', 'SymptomAssessmentController@diagnosis');
+Route::post('/diagnosis', 'SymptomAssessmentController@diagnosis');
 
+/**
+ * Domain Expert Routes
+ * domain expert panel
+ * admin only  
+ */
+Route::get('/expertCreate', 'KnowledgeController@create');
 
-//Domain Expert Routes
-Route::get('/expertCreate', 'DiseaseController@create');
-Route::post('/expertCreate', 'DiseaseController@store');//create
+Route::get('/expertCreate', 'KnowledgeController@create');//create form
+Route::post('/expertCreate', 'KnowledgeController@store');
 
-Route::get('/expertEdit', 'DiseaseController@edit');
-Route::post('/expertEdit', 'DiseaseController@update');//update
-
-Route::post('/expertDelete', 'DiseaseController@destroy');
+Route::get('/expertEdit', 'KnowledgeController@edit');//edit form
+Route::post('/expertEdit', 'KnowledgeController@update');//update request
+Route::post('/expertDelete', 'KnowledgeController@destroy');//delete request
 
 
 
 //Expert System Engineer View
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->middleware('auth');
 
+//domain expert panel
 
 
-//change database names
 //dissease to kb
 //xpert to expert

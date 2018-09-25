@@ -127,47 +127,36 @@ class DiseaseController extends Controller
         }
         return $searchResult;
         //         return $availableSymptoms = [
-//             "ActionScript",
-//             "AppleScript",
-//             "Asp",
-//             "BASIC",
-//             "C",
-//             "C++",
-//             "Clojure",
-//             "COBOL",
-//             "ColdFusion",
-//             "Erlang",
-//             "Fortran",
-//             "Groovy",
-//             "Haskell",
-//             "Java",
-//             "JavaScript",
-//             "Lisp",
-//             "Perl",
-//             "PHP",
-//             "Python",
-//             "Ruby",
-//             "Scala",
-//             "Scheme"
-//           ];
-    }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \MSDS\Disease  $disease
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Disease $disease)
-    {
-        //
-    }
+        //             "ActionScript",
+        //             "AppleScript",
+        //             "Asp",
+        //             "BASIC",
+        //             "C",
+        //             "C++",
+        //             "Clojure",
+        //             "COBOL",
+        //             "ColdFusion",
+        //             "Erlang",
+        //             "Fortran",
+        //             "Groovy",
+        //             "Haskell",
+        //             "Java",
+        //             "JavaScript",
+        //             "Lisp",
+        //             "Perl",
+        //             "PHP",
+        //             "Python",
+        //             "Ruby",
+        //             "Scala",
+        //             "Scheme"
+        //           ];
+        }
 
 
 
 
-    public function diagnosis(Request $request)
+
+public function diagnosis(Request $request)
     {
         $symptoms = $request->symptoms;
         $symptoms = str_replace(", ",",","$symptoms");
@@ -190,50 +179,50 @@ class DiseaseController extends Controller
         //don't yet delete
 //        foreach ($symptoms as  $symptom)
 //        {
-////            for ($i=0;$i < (count($symptoms) -1 ); $i++)
-////            {
-////                $i = 0;
-//////                $commonSymptoms[$i] = Disease::CommonSymptoms($disease,$symptom)->get()->all();
-//////                $rareSymptoms[$i] = Disease::RareSymptoms($disease,$symptom)->get()->all();
-////                $commonSymptoms[$i] = DB::table('diseases')->where('disease', "$diseases[$i]")->where('commonSymptoms','like',"%$symptom%")->count();
-//////
-////                $uncommonSymptoms[$i] = DB::table('diseases')->where('disease', "$diseases[$i]")->where('uncommonSymptoms','like',"%$symptom%")->count();
-////
-////                if ($commonSymptoms[$i] != 0)
-////                {
-////                    $diseaseScores[$i] += 1.0;
-////                }
-////                if ($uncommonSymptoms[$i] != 0)
-////                {
-////                    $diseaseScores[$i]  += 0.5;
-////                }
-////                $commonSymptoms[$i] = 0;
-////                $uncommonSymptoms[$i] = 0;
-////
-//////                if ($i = 3)
-//////                    dd($diseaseScores,$commonSymptoms,$uncommonSymptoms);
-////
-////            }
-////
-//////            foreach ($diseases as $disease)
-//////            {
-//////                $i = 0;
-//////                if ($commonSymptoms[$i] != null)
-//////                {
-//////                    $diseaseScores[$i] += 1.0;
-//////                }
-//////                if ($uncommonSymptoms[$i] != null)
-//////                {
-//////                    $diseaseScores[$i]  += 0.5;
-//////                }
-//////                $i++;
-//////            }
-//
-//
-//
-//
-//
-//
+// //            for ($i=0;$i < (count($symptoms) -1 ); $i++)
+// //            {
+// //                $i = 0;
+// ////                $commonSymptoms[$i] = Disease::CommonSymptoms($disease,$symptom)->get()->all();
+// ////                $rareSymptoms[$i] = Disease::RareSymptoms($disease,$symptom)->get()->all();
+// //                $commonSymptoms[$i] = DB::table('diseases')->where('disease', "$diseases[$i]")->where('commonSymptoms','like',"%$symptom%")->count();
+// ////
+// //                $uncommonSymptoms[$i] = DB::table('diseases')->where('disease', "$diseases[$i]")->where('uncommonSymptoms','like',"%$symptom%")->count();
+// //
+// //                if ($commonSymptoms[$i] != 0)
+// //                {
+// //                    $diseaseScores[$i] += 1.0;
+// //                }
+// //                if ($uncommonSymptoms[$i] != 0)
+// //                {
+// //                    $diseaseScores[$i]  += 0.5;
+// //                }
+// //                $commonSymptoms[$i] = 0;
+// //                $uncommonSymptoms[$i] = 0;
+// //
+// ////                if ($i = 3)
+// ////                    dd($diseaseScores,$commonSymptoms,$uncommonSymptoms);
+// //
+// //            }
+// //
+// ////            foreach ($diseases as $disease)
+// ////            {
+// ////                $i = 0;
+// ////                if ($commonSymptoms[$i] != null)
+// ////                {
+// ////                    $diseaseScores[$i] += 1.0;
+// ////                }
+// ////                if ($uncommonSymptoms[$i] != null)
+// ////                {
+// ////                    $diseaseScores[$i]  += 0.5;
+// ////                }
+// ////                $i++;
+// ////            }
+
+
+
+
+
+
 //        }
 
 
@@ -254,6 +243,7 @@ class DiseaseController extends Controller
         $symptoms = str_replace(" ,",",","$symptoms");
         $symptoms = explode(",", "$symptoms");
         dd($symptoms);
+        
         $diseases = DB::select('select disease,commonSymptoms,uncommonSymptoms FROM diseases');
 
 
