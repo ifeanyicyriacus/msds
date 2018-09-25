@@ -31,20 +31,20 @@ Route::get('/FAQ', function () {
 
 ////Condition Library Routes
 Route::get('/library', 'ConditionController@index');//users
-Route::get('/library', 'ConditionController@show');//users
-Route::get('/library', 'ConditionController@create');//Domain Expert
-Route::post('/library', 'ConditionController@store');//Domain Expert
-Route::post('/library', 'ConditionController@edit');//Domain Expert
-Route::get('/library', 'ConditionController@update');//Domain Expert
-Route::get('/library', 'ConditionController@destroy');//Domain Expert
+//Route::get('/library', 'ConditionController@show');//users
+//Route::get('/library', 'ConditionController@create');//Domain Expert
+//Route::post('/library', 'ConditionController@store');//Domain Expert
+//Route::post('/library', 'ConditionController@edit');//Domain Expert
+//Route::get('/library', 'ConditionController@update');//Domain Expert
+//Route::get('/library', 'ConditionController@destroy');//Domain Expert
 
 ////Emergency Routes
 Route::get('/112', 'EmergencyController@show');//users
-Route::get('/112', 'EmergencyController@create');//Domain Expert
-Route::get('/112', 'EmergencyController@store');//Domain Expert
-Route::get('/112', 'EmergencyController@edit');//Domain Expert
-Route::get('/112', 'EmergencyController@update');//Domain Expert
-Route::get('/112', 'EmergencyController@destroy');//Domain Expert
+//Route::get('/112', 'EmergencyController@create');//Domain Expert
+//Route::get('/112', 'EmergencyController@store');//Domain Expert
+//Route::get('/112', 'EmergencyController@edit');//Domain Expert
+//Route::get('/112', 'EmergencyController@update');//Domain Expert
+//Route::get('/112', 'EmergencyController@destroy');//Domain Expert
 
 
 //Profile Routes
