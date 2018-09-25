@@ -116,39 +116,5 @@ class KnowledgeController extends Controller
      */
     public function destroy(Knowledge $knowledge)
     {
-        $symptom = $request->symptom;
-        $symptoms = Symptom::where('name','LIKE','%'.$symptom.'%')->get();
-
-        if (count($symptom) == 0){
-            $searchResult= 'No symptom found';
-        }
-        else{
-            foreach ($symptoms as $symptom){}
-        }
-        return $searchResult;
-        //         return $availableSymptoms = [
-//             "ActionScript",
-//             "AppleScript",
-//             "Asp",
-//             "BASIC",
-//             "C",
-//             "C++",
-//             "Clojure",
-//             "COBOL",
-//             "ColdFusion",
-//             "Erlang",
-//             "Fortran",
-//             "Groovy",
-//             "Haskell",
-//             "Java",
-//             "JavaScript",
-//             "Lisp",
-//             "Perl",
-//             "PHP",
-//             "Python",
-//             "Ruby",
-//             "Scala",
-//             "Scheme"
-//           ];
     }
 }

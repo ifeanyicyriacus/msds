@@ -21,7 +21,6 @@ class CreateEmergenciesTable extends Migration
             $table->float('lat');
             $table->float('lng');
             $table->string('added_by');
-
             $table->timestamps();
         });
     }

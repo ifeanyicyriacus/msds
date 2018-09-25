@@ -37,7 +37,7 @@
 
                                 </div>
                                 {{--<div id="noSymptomList" class="alert alert-success alert-dismissible form-group show" role="alert">--}}
-                                    {{--<strong>:)</strong> No Symptom selected yet--}}
+                                {{--<strong>:)</strong> No Symptom selected yet--}}
 
                                 {{--</div>--}}
 
@@ -59,8 +59,6 @@
                             function remove(){
 
                             }
-
-
                         </script>
 
                         <div class="col-md-5" id="resultSection">
@@ -123,28 +121,34 @@
     <script>
         $( function() {
             var availableSymptoms = [
-                "ActionScript",
-                "AppleScript",
-                "Asp",
-                "BASIC",
-                "C",
-                "C++",
-                "Clojure",
-                "COBOL",
-                "ColdFusion",
-                "Erlang",
-                "Fortran",
-                "Groovy",
-                "Haskell",
-                "Java",
-                "JavaScript",
-                "Lisp",
-                "Perl",
-                "PHP",
-                "Python",
-                "Ruby",
-                "Scala",
-                "Scheme"
+                "abscesses","acetonemias","acetonurias","agues","albuminurias","alkalinurias","alkalurias",
+                "amenias","amenorrheas","amenorrhoeas","aminoacidurias","ammoniurias","anaemias","apnoeas",
+                "areflexias","atrophies","aurae","buboes","cardiac murmur*","cardiomegalies","chills",
+                "chills and fever*","chloasmas","cicatrices","clubbings","congestions","constipations","coughings",
+                "coughs","cramps","crepitation rale*","cyanosises","diarrhoeas","diuresises","dizzinesses",
+                "dyspepsias","dyspneas","dyspnoeas","effects","enlarged heart*","eosinopenias","eosinophilias",
+                "eruptions","exophthalmias","exophthalmoses","febricities","febrilities","festinations","feverishnesses",
+                "fevers","floaters","flushes","furrings","giddinesses","glycosurias","haematurias",
+                "haemoglobinemias","haemoglobinurias","haemoptysises","haemosiderosises","hardenings","heart murmur*",
+                "heartburns","hiccoughs","hiccups","hot flush*","hurtings","hydrophobias",
+                "hypercalcaemias","hypercalcinurias","hypercalciurias","hypercholesteraemias","hypercholesterolaemias",
+                "hyperglycaemias","hyperkalemias","hyperlipaemias","hyperlipidaemias","hyperlipoidaemias",
+                "hypermenorrhoeas","hypernatremias","hypersplenisms","hypocalcaemias","hypoglycaemias","hypokalemias",
+                "hyponatremias","hypoproteinemias","icteruses","indigestions","inflammations","irregularities",
+                "Jacquemier's sign*","jaundices","kaliuresises","kaluresises","Kayser-Fleischer ring*",
+                "keratomalacias","Kernig's sign*","ketoacidurias","ketonemias","ketonurias","ketosises","Koplik's spots*",
+                "lightheadednesses","lipaemias","lipidaemias","lipoidaemias","loosenesses","loosenesses of the bowels",
+                "lumps","lymphurias","masks of pregnancy","megacardias","megalocardias","melasmas","meningisms",
+                "menorrhagias","monocytosises","murmurs","musca volitans*","muscae volitantes*","muscle spasm*",
+                "myoglobinurias","natriuresises","nauseas","nebulae","numbnesses",
+                "ochronosises","oligurias","pains","palpitations","palsies","paraesthesias","postnasal drip*",
+                "prodromas","prodromes","proptosises","proteinurias","puffinesses","purulences","purulencies",
+                "pyrexias","pyrosises","pyurias","rednesses","rhinorrheas","rubors","scars",
+                "shiverings","sicknesses","singultuses","sneezes","sneezings","spasms","spotses",
+                "steatorrhoeas","sternutations","stomach upset*","stridors","swellings","syndromes","thrombocytosises",
+                "tinnituses","upset stomach*","uratemias","uraturias","uricacidurias","vertigos","wasting away*",
+                "wastings","wheezinesses","withdrawal symptom*","woozinesses"
+
             ];
             $( "#symptomSearchBox" ).autocomplete({
                 source: availableSymptoms
