@@ -64,7 +64,7 @@
             </li> --}}
         </ul>
         <form class="form-inline my-2 my-lg-0 pull-left" action="{{url('library')}}">
-            <input name="condition" class="form-control mr-sm-2" type="search" placeholder="Search Condition library" aria-label="Search">
+            <input id="" name="condition" class="form-control mr-sm-2 ConditionSearchBox" type="search" placeholder="Search Condition library" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         @if (Route::has('login'))

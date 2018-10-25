@@ -21,7 +21,7 @@ class SymptomAssessmentController extends Controller
      */
     public function index()
     {
-        return view('DyDx');
+        return view('newDx');
     }
 
     public function diagnosis(Request $request)
@@ -30,19 +30,22 @@ class SymptomAssessmentController extends Controller
         $symptoms = $this->commaSeparatedStringToArray($rawSymptoms);
 
         /*fetch disease from database disease table*/
-        $rawDiseases = DB::select('select disease,common_symptoms,uncommon_symptoms FROM diseasetest');
-
-        $diseases[][]=0;
+        $rawDiseases = DB::select('select disease,commonsymptoms,uncommonsymptoms FROM knowledge');
+//        dd($rawDiseases);
+//        $diseases[][];
+        $diseases=array();
+        $diseaseScores=array();
         for ($i=0; $i< count($rawDiseases);$i++) {
             $diseases[$i]['name']=$rawDiseases[$i]->disease;
-            $diseases[$i]['commonSymptoms']=$rawDiseases[$i]->common_symptoms;
-            $diseases[$i]['uncommonSymptoms']=$rawDiseases[$i]->uncommon_symptoms;
+            $diseases[$i]['commonSymptoms']=$rawDiseases[$i]->commonsymptoms;
+            $diseases[$i]['uncommonSymptoms']=$rawDiseases[$i]->uncommonsymptoms;
+            $diseaseScores[$i] = 0;
         }
-        dd($diseases);
 
-        $diseaseScores[]=0;
 
         $diseaseScores = $this->grading($symptoms,$diseases,$diseaseScores);
+
+        dd($diseaseScores);
 
     }
     /**
@@ -56,6 +59,7 @@ class SymptomAssessmentController extends Controller
         $commaList = str_replace(" ,",",","$commaList");
         $arrayList = explode(",", "$commaList");
         /*ent of conversion */
+//        dd($arrayList);
         return $arrayList;
     }
 
@@ -69,22 +73,22 @@ class SymptomAssessmentController extends Controller
 //            cough
 
             for ($j=0; $j < count($diseases);$j++) {
-//                if (contain $symptoms[$i]) {
+                if ($this->test($diseases[$i]['commonSymptoms'],$symptoms[$i])) {
+                    $diseaseScores[$i] += 0.5;
+                }
+                if ($this->test($diseases[$i]['uncommonSymptoms'],$symptoms[$i])) {
+                    $diseaseScores[$i] += 0.5;
+                }
+
+//                if ($i == count($diseaseScores)){
+//                    $j++;$i=0;
 //                }
-
-
-            }
-            if ($this->test("cough,chills,fever","chills")) {
-                $diseaseScores[$i] += 0.5;
-            }
-
-            if ($i == count($diseaseScores)){
-                $j++;$i=0;
+//
+//                if ($j == count($diseaseScores)){
+//                    break;
+//                }
             }
 
-            if ($j == count($diseaseScores)){
-                break;
-            }
 
         }
 

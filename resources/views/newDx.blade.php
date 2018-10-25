@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('page_head')
+    <title>{{ config('app.name', 'Laravel') }} | Symptom Assessment</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
 @endsection
 

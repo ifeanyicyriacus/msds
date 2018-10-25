@@ -31,7 +31,7 @@ Route::get('/FAQ', function () {
 
 ////Condition Library Routes
 Route::get('/library', 'ConditionController@index');//users
-//Route::get('/library', 'ConditionController@show');//users
+Route::get('/library/{condition}', 'ConditionController@show')->name('condition.show');//users
 //Route::get('/library', 'ConditionController@create');//Domain Expert
 //Route::post('/library', 'ConditionController@store');//Domain Expert
 //Route::post('/library', 'ConditionController@edit');//Domain Expert
@@ -49,8 +49,8 @@ Route::get('/112', 'EmergencyController@show');//users
 
 //Profile Routes
 Route::get('/profile', 'ProfileController@show');//users only
-Route::post('/updateBasic', 'ProfileController@basicUpdate');//users only
-Route::post('/updateMedical', 'ProfileController@medicalUpdate');//users only
+Route::post('/updateBasic', 'ProfileController@basicUpdate');//users only //probably a user model function
+Route::post('/updateMedical', 'ProfileController@medicalUpdate');//users only //a profile model function
 
 //Symptoms Assessment routes
 Route::get('/dydx', 'SymptomAssessmentController@index');//users

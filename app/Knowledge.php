@@ -20,4 +20,8 @@ class Knowledge extends Model
     //     return $query;
 
     // }
+    public function scopeIsLike($query,$keyword)
+    {
+        return $query->where('disease',"like","%$keyword%");/*->orderBy('disease','asc') *//*i need to sort alphabetically*/
+    }
 }

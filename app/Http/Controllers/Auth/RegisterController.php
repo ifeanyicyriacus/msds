@@ -74,5 +74,6 @@ class RegisterController extends Controller
             'sex' => $data['sex'],
             'd_o_b' => $data['d_o_b'],
         ]);
+        // i also created a user profile in the RegisterUsers.php register()
     }
 }

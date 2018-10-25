@@ -29,8 +29,9 @@
     </div>
 @endif
 
-    <form action="{{url('/xpertCreate')}}" method="post">
+    <form action="{{url('/expertCreate')}}" method="post">
         {{csrf_field()}}
+        <input type="hidden" name="added_by" value="{{ Auth::user()->email }}">
         <div class="form-group row">
             <label for="disease" class="col-sm-2 col-form-label">Disease Name</label>
             <div class="col-sm-10">
@@ -73,7 +74,7 @@
         <div class="form-group row">
             <label for="relatedDiseases" class="col-sm-2 col-form-label">Related Diseases</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="relatedDiseases" id="relatedDiseases" placeholder="Malaria,Pneumonia,..." required>
+                <input type="text" class="form-control" name="relatedDiseases" id="relatedDiseases" placeholder="Malaria,Pneumonia,...">
                 <small id="relatedDiseasesHelp" class="form-text text-muted">Separate related diseases with comma (,)</small>
             </div>
         </div>

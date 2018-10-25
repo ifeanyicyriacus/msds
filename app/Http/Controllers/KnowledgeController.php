@@ -41,13 +41,16 @@ class KnowledgeController extends Controller
      */
     public function store(Request $request)
     {
-        $disease = new Disease();
+        $disease = new Knowledge();
         $diseaseName = $request->disease;
         $disease->disease =$diseaseName ;
         $disease->commonSymptoms =$request->commonSymptoms;
         $disease->uncommonSymptoms =$request->uncommonSymptoms;
         $disease->relatedDiseases =$request->relatedDiseases;
         $disease->diseaseSex =$request->diseaseSex;
+
+        //added by
+        $disease->added_by =$request->added_by;
 
 
         $doctorTypes =$request->doctorType;
@@ -61,8 +64,6 @@ class KnowledgeController extends Controller
         $disease->criticalLevel =$request->criticalLevel;
         $disease->description =$request->description;
 
-
-        $disease->added_by =$request->usreId;
         //test to validate that it has a value
 
         if ($disease->save())

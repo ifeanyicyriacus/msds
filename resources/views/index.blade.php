@@ -88,7 +88,8 @@
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
-                        </form>                    </div>
+                        </form>
+                    </div>
                 </div>
                 @else
                     <a href="{{ route('login') }}">Login</a>
@@ -110,13 +111,7 @@
         <span style="font-size: 1.25rem;">
             <span style="color:#28a745">M</span><span style="color:#007bff">S</span><span style="color:black">&</span><span style="color:#ffc107">D</span><span style="color:#dc3545">S</span>.
         </span>
-            I can help you find out what's going on, Just start a<form style="display: inline" action="{{url('dydx')}}" method="{{--post--}}">
-                {{--{{csrf_field()}}
-                @if (Auth::guest())
-                    <input type="hidden" name="userid" value="Anonymous">
-                @else
-                    <input type="hidden" name="userid" value="{{ Auth::user()->email }}">
-                @endif--}}
+            I can help you find out what's going on, Just start a<form style="display: inline" action="{{url('dydx')}}">
                 <button class="btn btn-sm btn-outline-primary" type="submit"><strong>Symptom Assessment.</strong></button></form>
 
 
@@ -140,7 +135,7 @@
                             @else
                                 <input type="hidden" name="userid" value="{{ Auth::user()->email }}">
                             @endif--}}
-                            <button type="submit" class="btn btn-success"><strong>Symptom assessment</strong></button>
+                            <button type="submit" class="btn btn-success"><strong>Symptom Assessment</strong></button>
                         </form>
 
                     </div>
